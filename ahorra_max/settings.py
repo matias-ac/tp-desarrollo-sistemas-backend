@@ -46,6 +46,8 @@ DEPENDENCIES_APPS = ["rest_framework"]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + DEPENDENCIES_APPS
 
+AUTH_USER_MODEL = 'usuarios.Usuario'
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
