@@ -28,6 +28,20 @@ class Promocion(models.Model):
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     condiciones_legales = models.TextField()
+    entidad_oferente = models.ForeignKey(
+        "entidades.EntidadOferente",
+        on_delete=models.CASCADE,
+        related_name="promociones",
+    )
+    supermercados = models.ManyToManyField(
+        "entidades.Supermercado", related_name="promociones"
+    )
+    medios_de_pago = models.ManyToManyField(
+        "promociones.MedioDePago", related_name="promociones"
+    )
+    dias_semana = models.ManyToManyField(
+        "promociones.DiaSemana", related_name="promociones"
+    )
 
     def __str__(self):
         return f"Promocion {self.titulo} válida del {self.fecha_inicio} al {self.fecha_fin}"
