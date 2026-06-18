@@ -30,4 +30,4 @@ class Promocion(models.Model):
     condiciones_legales = models.TextField()
 
     def __str__(self):
-        return f"{self.titulo}"
+        return f"Promocion {self.titulo} válida del {self.fecha_inicio} al {self.fecha_fin}"
