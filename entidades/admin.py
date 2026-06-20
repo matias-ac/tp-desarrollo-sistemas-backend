@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Supermercado, EntidadOferente
 
-# Register your models here.
+admin.site.register(Supermercado)
+admin.site.register(EntidadOferente)
