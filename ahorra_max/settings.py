@@ -42,7 +42,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = ["usuarios", "entidades", "promociones"]
 
-DEPENDENCIES_APPS = ["rest_framework", "rest_framework_simplejwt"]
+DEPENDENCIES_APPS = ["rest_framework", "rest_framework_simplejwt", "django_filters"]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + DEPENDENCIES_APPS
 
@@ -128,5 +128,8 @@ STATIC_URL = "static/"
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
     ),
 }
