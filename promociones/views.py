@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import MedioDePago, DiaSemana
+from .serializers import MedioDePagoSerializer, DiaSemanaSerializer
 
-# Create your views here.
+
+class MedioDePagoListView(generics.ListAPIView):
+    queryset = MedioDePago.objects.all()
+    serializer_class = MedioDePagoSerializer
+
+
+class DiaSemanaListView(generics.ListAPIView):
+    queryset = DiaSemana.objects.all()
+    serializer_class = DiaSemanaSerializer
