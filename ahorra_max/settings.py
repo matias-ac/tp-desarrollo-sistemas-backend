@@ -42,7 +42,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = ["usuarios", "entidades", "promociones"]
 
-DEPENDENCIES_APPS = ["rest_framework"]
+DEPENDENCIES_APPS = ["rest_framework", "rest_framework_simplejwt"]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + DEPENDENCIES_APPS
 
@@ -124,3 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
