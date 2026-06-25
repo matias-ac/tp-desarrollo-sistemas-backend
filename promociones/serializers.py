@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Promocion
+from .models import Promocion, MedioDePago, DiaSemana
 
 
 class PromocionSerializer(serializers.ModelSerializer):
@@ -20,3 +20,15 @@ class PromocionSerializer(serializers.ModelSerializer):
             'medios_de_pago',
             'dias_semana',
         ]
+
+
+class MedioDePagoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedioDePago
+        fields = ['id', 'descripcion']
+
+
+class DiaSemanaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DiaSemana
+        fields = ['id', 'nombre']

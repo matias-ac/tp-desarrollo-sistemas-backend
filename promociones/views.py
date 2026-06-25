@@ -1,7 +1,7 @@
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Promocion
-from .serializers import PromocionSerializer
+from .models import Promocion, MedioDePago, DiaSemana
+from .serializers import PromocionSerializer, MedioDePagoSerializer, DiaSemanaSerializer
 
 
 class PromocionListView(generics.ListAPIView):
@@ -13,3 +13,13 @@ class PromocionListView(generics.ListAPIView):
 class PromocionDetailView(generics.RetrieveAPIView):
     queryset = Promocion.objects.all()
     serializer_class = PromocionSerializer
+
+
+class MedioDePagoListView(generics.ListAPIView):
+    queryset = MedioDePago.objects.all()
+    serializer_class = MedioDePagoSerializer
+
+
+class DiaSemanaListView(generics.ListAPIView):
+    queryset = DiaSemana.objects.all()
+    serializer_class = DiaSemanaSerializer
