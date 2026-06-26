@@ -70,20 +70,19 @@ El backend queda disponible en `http://127.0.0.1:8000`.
 ### Instalación
 
 ```bash
-cd frontend
-npm install
+npm install --prefix frontend
 ```
 
 ### Variables de entorno
 
 ```bash
-cp .env.example .env
+cp frontend/.env.example frontend/.env
 ```
 
 ### Iniciar servidor de desarrollo
 
 ```bash
-npm run dev
+npm run dev --prefix frontend
 ```
 
 El frontend queda disponible en `http://localhost:5173`.
