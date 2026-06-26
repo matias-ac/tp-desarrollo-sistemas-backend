@@ -14,14 +14,14 @@ export const authService = {
     api.get('/api/usuarios/perfil/', { token }),
 
   agregarPromocionFavorita: (id, token) =>
-    api.post(`/api/usuarios/favoritos/promociones/${id}/agregar/`, {}, { token }),
+    api.post(`/api/promociones/${id}/agregar-favorito/`, {}, { token }),
 
   quitarPromocionFavorita: (id, token) =>
-    api.post(`/api/usuarios/favoritos/promociones/${id}/quitar/`, {}, { token }),
+    api.post(`/api/promociones/${id}/quitar-favorito/`, {}, { token }),
 
   agregarSupermercadoFavorito: (id, token) =>
-    api.post(`/api/usuarios/favoritos/supermercados/${id}/agregar/`, {}, { token }),
+    api.post(`/api/entidades/supermercados/${id}/agregar-favorito/`, {}, { token }),
 
   quitarSupermercadoFavorito: (id, token) =>
-    api.post(`/api/usuarios/favoritos/supermercados/${id}/quitar/`, {}, { token }),
+    api.post(`/api/entidades/supermercados/${id}/quitar-favorito/`, {}, { token }),
 }
