@@ -1,6 +1,10 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from .models import Usuario
 from .serializers import UsuarioSerializer
+from promociones.models import Promocion
+from entidades.models import Supermercado
 
 
 class RegistroUsuarioView(generics.CreateAPIView):
@@ -15,3 +19,51 @@ class PerfilUsuarioView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+class AgregarPromocionFavoritaView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, pk):
+        try:
+            promocion = Promocion.objects.get(pk=pk)
+        except Promocion.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        request.user.promociones_favoritas.add(promocion)
+        return Response(status=status.HTTP_200_OK)
+
+
+class QuitarPromocionFavoritaView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, pk):
+        try:
+            promocion = Promocion.objects.get(pk=pk)
+        except Promocion.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        request.user.promociones_favoritas.remove(promocion)
+        return Response(status=status.HTTP_200_OK)
+
+
+class AgregarSupermercadoFavoritoView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, pk):
+        try:
+            supermercado = Supermercado.objects.get(pk=pk)
+        except Supermercado.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        request.user.supermercados_favoritos.add(supermercado)
+        return Response(status=status.HTTP_200_OK)
+
+
+class QuitarSupermercadoFavoritoView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, pk):
+        try:
+            supermercado = Supermercado.objects.get(pk=pk)
+        except Supermercado.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        request.user.supermercados_favoritos.remove(supermercado)
+        return Response(status=status.HTTP_200_OK)
