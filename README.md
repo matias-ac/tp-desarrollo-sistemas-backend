@@ -110,11 +110,42 @@ tp-integrador/
 │   └── venv/
 └── frontend/
     ├── README.md
-    ├── src/
-    │   ├── components/
-    │   ├── context/
-    │   ├── pages/
-    │   ├── services/
-    │   └── config/
-    └── ...
+    ├── index.html
+    ├── package.json
+    ├── vite.config.js
+    ├── tailwind.config.js
+    ├── postcss.config.js
+    ├── public/
+    │   ├── favicon.svg
+    │   └── icons.svg
+    └── src/
+        ├── main.jsx
+        ├── App.jsx
+        ├── index.css
+        ├── assets/
+        ├── config/
+        │   └── brandColors.js
+        ├── context/
+        │   ├── AuthContext.jsx
+        │   ├── FavoritosContext.jsx
+        │   └── CatalogsContext.jsx
+        ├── services/
+        │   ├── api.js
+        │   ├── auth.js
+        │   ├── entidades.js
+        │   └── promociones.js
+        ├── components/
+        │   ├── Navbar.jsx
+        │   ├── ProtectedRoute.jsx
+        │   ├── PromocionCard.jsx
+        │   ├── FavoritoButton.jsx
+        │   ├── FiltrosPromocion.jsx
+        │   ├── LoadingSpinner.jsx
+        │   └── SkeletonCard.jsx
+        └── pages/
+            ├── LoginPage.jsx
+            ├── RegisterPage.jsx
+            ├── PromocionesPage.jsx
+            ├── PromocionDetailPage.jsx
+            └── PerfilPage.jsx
 ```
