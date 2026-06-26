@@ -5,7 +5,7 @@ Frontend para la aplicacion AhorraMax, construido con **React + Vite** y **Tailw
 ## Requisitos
 
 - Node.js >= 18
-- El backend Django corriendo (por defecto en `http://127.0.0.1:8090`)
+- El backend Django corriendo (por defecto en `http://127.0.0.1:8000`)
 
 ## Instalacion
 
@@ -23,7 +23,7 @@ cp .env.example .env
 ```
 
 ```env
-VITE_API_URL=http://127.0.0.1:8090
+VITE_API_URL=http://127.0.0.1:8000
 ```
 
 ## Correr en desarrollo
