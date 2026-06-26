@@ -71,6 +71,7 @@ export default function PromocionDetailPage() {
   if (!promocion) return null
 
   const entidadNombre = promocion.entidad_oferente?.nombre
+  const entidadLogo = promocion.entidad_oferente?.logo
   const brandColor = getBrandColor(entidadNombre)
 
   const supermercadoNombres = promocion.supermercados
@@ -96,8 +97,16 @@ export default function PromocionDetailPage() {
         <div className="absolute -right-4 -bottom-12 w-40 h-40 bg-white/5 rounded-full" />
         <div className="relative">
           {entidadNombre && (
-            <div className="inline-flex items-center gap-1.5 bg-white/20 rounded-full px-3 py-1 mb-3">
-              <span className="w-2 h-2 rounded-full bg-white" />
+            <div className="inline-flex items-center gap-2 bg-white/20 rounded-full px-3 py-1 mb-3">
+              {entidadLogo ? (
+                <img
+                  src={entidadLogo}
+                  alt={`${entidadNombre} logo`}
+                  className="w-6 h-6 rounded-full object-cover"
+                />
+              ) : (
+                <span className="w-2 h-2 rounded-full bg-white" />
+              )}
               <span className="text-xs font-semibold text-white">{entidadNombre}</span>
             </div>
           )}

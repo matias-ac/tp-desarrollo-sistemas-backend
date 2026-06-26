@@ -516,7 +516,7 @@
     "pk": 1,
     "fields": {
       "nombre": "Coto",
-      "logo": "https://ibb.co/LzkPNNXZ"
+      "logo": "https://i.ibb.co/8DKBYYL7/coto.jpg"
     }
   },
   {
@@ -524,7 +524,7 @@
     "pk": 2,
     "fields": {
       "nombre": "Carrefour",
-      "logo": "https://ibb.co/JwMQSBN6"
+      "logo": "https://i.ibb.co/NdHSGVXD/carrefour.png"
     }
   },
   {
@@ -532,7 +532,7 @@
     "pk": 3,
     "fields": {
       "nombre": "Dia",
-      "logo": "https://ibb.co/hF7zxJTy"
+      "logo": "https://i.ibb.co/Kx0vcp8X/dia.png"
     }
   },
   {
@@ -540,7 +540,7 @@
     "pk": 4,
     "fields": {
       "nombre": "Jumbo",
-      "logo": "https://ibb.co/k6GD4dHy"
+      "logo": "https://i.ibb.co/yBNk63fR/jumbo.jpg"
     }
   },
   {
@@ -548,7 +548,7 @@
     "pk": 5,
     "fields": {
       "nombre": "ChangoMas",
-      "logo": "https://ibb.co/xKCyPHrc"
+      "logo": "https://i.ibb.co/rK7gTsXL/changomas.png"
     }
   },
   {
@@ -556,7 +556,7 @@
     "pk": 1,
     "fields": {
       "nombre": "Banco Nación",
-      "logo": "https://ibb.co/Cs3LqJkX",
+      "logo": "https://i.ibb.co/tPTRSZ7N/banco-De-La-Nacion.png",
       "tipo": "banco"
     }
   },
@@ -565,7 +565,7 @@
     "pk": 2,
     "fields": {
       "nombre": "Santander",
-      "logo": "https://ibb.co/kgwVJGm0",
+      "logo": "https://i.ibb.co/6RTc8yXb/banco-Santander.png",
       "tipo": "banco"
     }
   },
@@ -574,7 +574,7 @@
     "pk": 3,
     "fields": {
       "nombre": "Mercado Pago",
-      "logo": "https://ibb.co/nNrmBH2S",
+      "logo": "https://i.ibb.co/hJs9cP5v/mercado-Pago.png",
       "tipo": "otro"
     }
   },
@@ -583,7 +583,7 @@
     "pk": 4,
     "fields": {
       "nombre": "MODO",
-      "logo": "https://ibb.co/n83zRfnh",
+      "logo": "https://i.ibb.co/gFvz6wPs/modo.png",
       "tipo": "otro"
     }
   },
@@ -592,7 +592,7 @@
     "pk": 5,
     "fields": {
       "nombre": "Carrefour",
-      "logo": "https://ibb.co/JwMQSBN6",
+      "logo": "https://i.ibb.co/NdHSGVXD/carrefour.png",
       "tipo": "supermercado"
     }
   },
@@ -601,7 +601,7 @@
     "pk": 6,
     "fields": {
       "nombre": "Coto",
-      "logo": "https://ibb.co/LzkPNNXZ",
+      "logo": "https://i.ibb.co/8DKBYYL7/coto.jpg",
       "tipo": "supermercado"
     }
   },
