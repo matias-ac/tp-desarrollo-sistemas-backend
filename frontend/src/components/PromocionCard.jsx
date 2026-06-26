@@ -17,6 +17,7 @@ export default function PromocionCard({ promocion }) {
     : null
 
   const entidadNombre = promocion.entidad_oferente?.nombre
+  const entidadLogo = promocion.entidad_oferente?.logo
   const brandColor = getBrandColor(entidadNombre)
 
   const supermercadoNombres = promocion.supermercados
@@ -60,11 +61,19 @@ export default function PromocionCard({ promocion }) {
       <div className="px-4 py-3 -mt-3 relative">
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-3">
           {entidadNombre && (
-            <div className="flex items-center gap-1.5 mb-2">
-              <span
-                className="inline-block w-2 h-2 rounded-full flex-shrink-0"
-                style={{ backgroundColor: brandColor }}
-              />
+            <div className="flex items-center gap-2 mb-2">
+              {entidadLogo ? (
+                <img
+                  src={entidadLogo}
+                  alt={`${entidadNombre} logo`}
+                  className="w-6 h-6 rounded-full object-cover"
+                />
+              ) : (
+                <span
+                  className="inline-block w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: brandColor }}
+                />
+              )}
               <span className="text-xs font-medium text-gray-500">{entidadNombre}</span>
             </div>
           )}

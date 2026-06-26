@@ -50,6 +50,12 @@ pip install -r backend/requirements.txt
 python backend/manage.py migrate
 ```
 
+### Poblar base de datos con datos de ejemplo (opcional)
+
+```bash
+python backend/manage.py loaddata backend/seed_data.json
+```
+
 ### Iniciar servidor
 
 ```bash
