@@ -36,7 +36,7 @@ class AgregarPromocionFavoritaView(APIView):
         except Promocion.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         request.user.promociones_favoritas.add(promocion)
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class QuitarPromocionFavoritaView(APIView):
@@ -48,4 +48,4 @@ class QuitarPromocionFavoritaView(APIView):
         except Promocion.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         request.user.promociones_favoritas.remove(promocion)
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_204_NO_CONTENT)

@@ -24,7 +24,7 @@ class AgregarSupermercadoFavoritoView(APIView):
         except Supermercado.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         request.user.supermercados_favoritos.add(supermercado)
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class QuitarSupermercadoFavoritoView(APIView):
@@ -36,4 +36,4 @@ class QuitarSupermercadoFavoritoView(APIView):
         except Supermercado.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         request.user.supermercados_favoritos.remove(supermercado)
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_204_NO_CONTENT)

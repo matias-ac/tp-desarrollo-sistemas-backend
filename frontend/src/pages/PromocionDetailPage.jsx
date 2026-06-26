@@ -196,14 +196,14 @@ export default function PromocionDetailPage() {
         className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors duration-200 flex items-center justify-center gap-2 ${
           favorita
             ? 'bg-red-50 text-red-600 border border-red-200 hover:bg-red-100'
-            : 'bg-brand-600 text-white hover:bg-brand-700'
+            : 'bg-green-600 text-white hover:bg-green-700'
         }`}
       >
         <Heart
           size={18}
           className={`transition-all duration-200 ${favorita ? 'fill-red-500 text-red-500' : 'text-white'}`}
         />
-        {favorita ? 'Quitar de favoritos' : 'Guardar en favoritos'}
+        {favorita ? 'Quitar de favoritos' : 'Agregar a favoritos'}
       </button>
 
       {!isAuthenticated && (
