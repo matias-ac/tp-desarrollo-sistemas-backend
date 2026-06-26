@@ -1,0 +1,38 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          50:  '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
+        },
+      },
+      keyframes: {
+        heartbeat: {
+          '0%':   { transform: 'scale(1)' },
+          '30%':  { transform: 'scale(1.35)' },
+          '60%':  { transform: 'scale(0.92)' },
+          '80%':  { transform: 'scale(1.1)' },
+          '100%': { transform: 'scale(1)' },
+        },
+      },
+      animation: {
+        heartbeat: 'heartbeat 0.45s ease-in-out',
+      },
+    },
+  },
+  plugins: [],
+}
