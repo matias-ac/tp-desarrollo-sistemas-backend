@@ -68,7 +68,7 @@ export default function SupermercadosPage() {
                   className="px-5 py-4 flex items-center justify-between"
                   style={{ backgroundColor: `${color}10` }}
                 >
-                  <div className="flex items-center gap-3">
+                  <Link to={`/supermercados/${s.id}`} className="flex items-center gap-3 flex-1 min-w-0">
                     <div className="w-10 h-10 rounded-xl flex-shrink-0 overflow-hidden">
                       <img
                         src={s.logo}
@@ -87,18 +87,18 @@ export default function SupermercadosPage() {
                         {s.nombre[0]}
                       </div>
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h2 className="font-semibold text-gray-900">{s.nombre}</h2>
                       <p className="text-xs text-gray-500">
                         {promos.length} promocion{promos.length !== 1 ? 'es' : ''}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                   <FavoritoButton
                     activo={esFav}
                     onClick={() => toggleSuperFav(s.id)}
                     size={20}
-                    className="p-2 rounded-full"
+                    className="p-2 rounded-full flex-shrink-0"
                   />
                 </div>
 
