@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage'
 import PromocionesPage from './pages/PromocionesPage'
 import PromocionDetailPage from './pages/PromocionDetailPage'
 import SupermercadosPage from './pages/SupermercadosPage'
+import SupermercadoDetailPage from './pages/SupermercadoDetailPage'
 import PerfilPage from './pages/PerfilPage'
 
 function LoadingScreen() {
@@ -44,6 +45,14 @@ function AppContent() {
               element={
                 <ProtectedRoute>
                   <SupermercadosPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/supermercados/:id"
+              element={
+                <ProtectedRoute>
+                  <SupermercadoDetailPage />
                 </ProtectedRoute>
               }
             />

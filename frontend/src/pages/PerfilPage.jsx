@@ -133,9 +133,10 @@ export default function PerfilPage() {
             {supermercadosFavoritos.map((s) => {
               const color = getBrandColor(s.nombre)
               return (
-                <span
+                <Link
                   key={s.id}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium border"
+                  to={`/supermercados/${s.id}`}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium border hover:opacity-80 transition-opacity"
                   style={{
                     borderColor: `${color}40`,
                     backgroundColor: `${color}12`,
@@ -144,7 +145,7 @@ export default function PerfilPage() {
                 >
                   <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
                   {s.nombre}
-                </span>
+                </Link>
               )
             })}
           </div>
