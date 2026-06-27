@@ -31,6 +31,12 @@ export default function Navbar() {
           {isAuthenticated ? (
             <>
               <Link
+                to="/supermercados"
+                className="text-sm font-medium text-gray-600 hover:text-brand-700 transition-colors"
+              >
+                Supermercados
+              </Link>
+              <Link
                 to="/perfil"
                 className="text-sm font-medium text-gray-600 hover:text-brand-700 transition-colors hidden sm:inline"
               >

@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import PromocionesPage from './pages/PromocionesPage'
 import PromocionDetailPage from './pages/PromocionDetailPage'
+import SupermercadosPage from './pages/SupermercadosPage'
 import PerfilPage from './pages/PerfilPage'
 
 function LoadingScreen() {
@@ -38,6 +39,14 @@ function AppContent() {
             <Route path="/promociones/:id" element={<PromocionDetailPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registro" element={<RegisterPage />} />
+            <Route
+              path="/supermercados"
+              element={
+                <ProtectedRoute>
+                  <SupermercadosPage />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/perfil"
               element={

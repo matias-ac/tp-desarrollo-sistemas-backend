@@ -6,11 +6,9 @@ import { useCatalogs } from '../context/CatalogsContext'
 import { authService } from '../services/auth'
 import { promocionesService } from '../services/promociones'
 import { getBrandColor } from '../config/brandColors'
-import FavoritoButton from '../components/FavoritoButton'
-
 export default function PerfilPage() {
   const { user, accessToken, updateUser, logout } = useAuth()
-  const { promosFav, supersFav, toggleSuperFav } = useFavoritos()
+  const { promosFav, supersFav } = useFavoritos()
   const { supermercados } = useCatalogs()
   const [loading, setLoading] = useState(true)
   const [promociones, setPromociones] = useState([])
@@ -127,10 +125,10 @@ export default function PerfilPage() {
         </div>
       )}
 
-      {/* Chips de supermercados favoritos */}
-      {supermercadosFavoritos.length > 0 && (
-        <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-          <h2 className="font-semibold text-gray-800 mb-3">Mis supermercados favoritos</h2>
+      {/* Supermercados favoritos */}
+      <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+        <h2 className="font-semibold text-gray-800 mb-3">Mis supermercados favoritos</h2>
+        {supermercadosFavoritos.length > 0 ? (
           <div className="flex flex-wrap gap-2">
             {supermercadosFavoritos.map((s) => {
               const color = getBrandColor(s.nombre)
@@ -150,69 +148,18 @@ export default function PerfilPage() {
               )
             })}
           </div>
-        </div>
-      )}
-
-      {/* Lista completa de supermercados */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-        <h2 className="font-semibold text-gray-800 mb-1">Mis supermercados</h2>
-        <p className="text-xs text-gray-400 mb-4">
-          Marca tus supermercados favoritos para filtrar promociones mas rapido.
-        </p>
-
-        {supermercados.length === 0 ? (
-          <div className="text-center py-8 text-gray-400">
-            <div className="text-4xl mb-2">🏪</div>
-            <p className="text-sm">No hay supermercados disponibles</p>
-          </div>
         ) : (
-          <div className="space-y-1">
-            {supermercados.map((s) => {
-              const esFav = supersFav.has(s.id)
-              const color = getBrandColor(s.nombre)
-              return (
-                <div
-                  key={s.id}
-                  className="flex items-center justify-between py-2.5 px-1 border-b border-gray-100 last:border-0 rounded-lg transition-colors hover:bg-gray-50 duration-150"
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
-                      style={{ backgroundColor: color }}
-                    >
-                      {s.nombre[0]}
-                    </div>
-                    <span className="text-sm font-medium text-gray-800">{s.nombre}</span>
-                  </div>
-                  <FavoritoButton
-                    activo={esFav}
-                    onClick={() => toggleSuperFav(s.id)}
-                    size={20}
-                    className="p-1.5 rounded-full"
-                  />
-                </div>
-              )
-            })}
+          <div className="text-center py-4">
+            <p className="text-sm text-gray-400">
+              No tenes supermercados favoritos todavia.{' '}
+              <Link to="/supermercados" className="text-brand-600 font-medium hover:underline">
+                Agregar desde Supermercados
+              </Link>
+            </p>
           </div>
         )}
-
-        {supermercados.length > 0 && supersFav.size === 0 && (
-          <p className="text-center text-xs text-gray-400 mt-3">
-            Todavia no tenes supermercados favoritos. ¡Marca los que usas mas seguido!
-          </p>
-        )}
       </div>
 
-      {/* Acceso rapido */}
-      <div className="bg-brand-50 border border-brand-200 rounded-2xl p-4 text-center">
-        <p className="text-sm text-brand-700 font-medium mb-2">Explorar promociones</p>
-        <Link
-          to="/"
-          className="inline-block bg-brand-600 text-white text-sm font-semibold px-5 py-2 rounded-xl hover:bg-brand-700 transition-colors duration-200"
-        >
-          Ver todas las promociones
-        </Link>
-      </div>
     </main>
   )
 }
