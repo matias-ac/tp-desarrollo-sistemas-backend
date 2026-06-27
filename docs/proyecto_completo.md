@@ -487,12 +487,13 @@ Ejemplos:
 - **Optimistic UI**: favoritos responden instantáneamente
 - **Animación heartbeat**: al marcar/desmarcar favoritos
 - **Microinteracciones**: hover con elevación en cards, transiciones suaves
-- **Seguridad**: token JWT solo en memoria (no localStorage)
+- **Persistencia de sesión**: el refresh token se guarda en `localStorage`. Al recargar la página, se usa para obtener un nuevo access token via `POST /api/token/refresh/`
+- **Seguridad (producción)**: la práctica correcta en producción es usar **httpOnly cookies** en lugar de localStorage. El servidor setea la cookie con las flags `httpOnly` y `Secure`; el navegador la envía automáticamente en cada request y JavaScript no puede leerla, eliminando el riesgo de robo de token via XSS. Para este TP se optó por localStorage por simplicidad
 
 ---
 
 ## 14. Notas Técnicas
 
 - Las vistas de favoritos usan `get_object_or_404` de Django
-- No hay refresh automático del token JWT en el frontend
+- El refresh automático del token JWT ocurre al recargar la página: se lee el refresh token de `localStorage` y se invoca `POST /api/token/refresh/` para obtener un nuevo access token en memoria
 - Los tests de las 3 apps existen pero están vacíos (solo template de Django)

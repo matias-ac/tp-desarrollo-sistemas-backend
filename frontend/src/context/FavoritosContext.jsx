@@ -60,7 +60,8 @@ export function FavoritosProvider({ children }) {
       } else {
         await authService.agregarPromocionFavorita(id, accessToken)
       }
-    } catch {
+    } catch (err) {
+      console.error('Error al togglear promo favorita:', err)
       // Revertir ref y estado si la request falla
       if (esFav) {
         promosFavRef.current.add(id)
@@ -94,7 +95,8 @@ export function FavoritosProvider({ children }) {
       } else {
         await authService.agregarSupermercadoFavorito(id, accessToken)
       }
-    } catch {
+    } catch (err) {
+      console.error('Error al togglear super favorito:', err)
       if (esFav) {
         supersFavRef.current.add(id)
       } else {

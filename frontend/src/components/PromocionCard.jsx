@@ -62,18 +62,24 @@ export default function PromocionCard({ promocion }) {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-3">
           {entidadNombre && (
             <div className="flex items-center gap-2 mb-2">
-              {entidadLogo ? (
-                <img
-                  src={entidadLogo}
-                  alt={`${entidadNombre} logo`}
-                  className="w-6 h-6 rounded-full object-cover"
-                />
-              ) : (
+              <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0">
+                {entidadLogo ? (
+                  <img
+                    src={entidadLogo}
+                    alt={`${entidadNombre} logo`}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none'
+                      const fb = e.target.parentElement.querySelector('.logo-fallback')
+                      if (fb) fb.classList.remove('hidden')
+                    }}
+                  />
+                ) : null}
                 <span
-                  className="inline-block w-2 h-2 rounded-full flex-shrink-0"
+                  className={`logo-fallback w-full h-full rounded-full flex-shrink-0 ${entidadLogo ? 'hidden' : ''}`}
                   style={{ backgroundColor: brandColor }}
                 />
-              )}
+              </div>
               <span className="text-xs font-medium text-gray-500">{entidadNombre}</span>
             </div>
           )}
