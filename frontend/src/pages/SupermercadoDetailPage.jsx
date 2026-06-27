@@ -68,11 +68,23 @@ export default function SupermercadoDetailPage() {
         <div className="absolute -right-4 -bottom-12 w-40 h-40 bg-white/5 rounded-full" />
         <div className="relative flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center text-white text-xl font-bold"
-              style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
-            >
-              {supermercado.nombre[0]}
+            <div className="w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0">
+              <img
+                src={supermercado.logo}
+                alt={supermercado.nombre}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none'
+                  const fallback = e.target.parentElement.querySelector('.img-fallback')
+                  if (fallback) fallback.classList.remove('hidden')
+                }}
+              />
+              <div
+                className="img-fallback hidden w-full h-full flex items-center justify-center text-white text-xl font-bold"
+                style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
+              >
+                {supermercado.nombre[0]}
+              </div>
             </div>
             <div>
               <h1 className="text-xl font-bold">{supermercado.nombre}</h1>

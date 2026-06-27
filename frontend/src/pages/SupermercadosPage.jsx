@@ -69,11 +69,23 @@ export default function SupermercadosPage() {
                   style={{ backgroundColor: `${color}10` }}
                 >
                   <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                      style={{ backgroundColor: color }}
-                    >
-                      {s.nombre[0]}
+                    <div className="w-10 h-10 rounded-xl flex-shrink-0 overflow-hidden">
+                      <img
+                        src={s.logo}
+                        alt={s.nombre}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                          const fallback = e.target.parentElement.querySelector('.img-fallback')
+                          if (fallback) fallback.classList.remove('hidden')
+                        }}
+                      />
+                      <div
+                        className="img-fallback hidden w-full h-full flex items-center justify-center text-white text-sm font-bold"
+                        style={{ backgroundColor: color }}
+                      >
+                        {s.nombre[0]}
+                      </div>
                     </div>
                     <div>
                       <h2 className="font-semibold text-gray-900">{s.nombre}</h2>
